@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blueforce Platform — Case Study | Naveen Kanagala</title>
+  <meta name="description" content="How I architected a real-time IoT field-force management SaaS at AlgoLeap, reducing API latency by 40% and enabling enterprise-scale tracking." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2300D4FF'/><text y='23' x='6' font-size='18' font-weight='800' font-family='sans-serif' fill='%23000'>N</text></svg>" />
+</head>
+<body>
+
+<nav class="navbar" role="navigation">
+  <a href="index.html" class="nav-logo"><span class="dot"></span>NK.dev</a>
+  <ul class="nav-links">
+    <li><a href="projects.html" class="active">Work</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="mailto:naveenkanagala@email.com" class="nav-cta">Hire Me →</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section class="cs-hero">
+  <div class="cs-hero-bg"></div>
+  <div style="position:absolute;top:-100px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,255,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <nav class="cs-breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="projects.html">Projects</a>
+      <span>›</span>
+      <span style="color:var(--cyan);">Blueforce</span>
+    </nav>
+
+    <div class="tag tag-cyan" style="margin-bottom:20px;display:inline-flex;">⚡ SaaS · IoT Platform</div>
+
+    <h1>
+      Blueforce — Real-Time<br>
+      <span class="gradient-text">Field Force Management Platform</span>
+    </h1>
+
+    <p style="font-size:1.05rem;color:var(--text-secondary);max-width:620px;line-height:1.7;margin-bottom:28px;">
+      A full-stack enterprise IoT SaaS built at AlgoLeap — enabling organizations to
+      track field agents in real-time, automate workflows, and gain operational intelligence
+      at scale.
+    </p>
+
+    <div class="cs-hero-meta">
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Company</span>
+        <span class="cs-meta-val">AlgoLeap</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Role</span>
+        <span class="cs-meta-val">Senior .NET Developer / Architect</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Duration</span>
+        <span class="cs-meta-val">2022 – 2024 (2 years)</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Team Size</span>
+        <span class="cs-meta-val">8 Engineers</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ IMPACT BANNER ══════ -->
+<div class="cs-impact">
+  <div class="container">
+    <div class="cs-impact-grid">
+      <div class="cs-impact-item">
+        <span class="cs-impact-num">40%</span>
+        <span class="cs-impact-desc">API latency reduction</span>
+      </div>
+      <div class="cs-impact-item">
+        <span class="cs-impact-num">&lt;1s</span>
+        <span class="cs-impact-desc">Real-time event delivery</span>
+      </div>
+      <div class="cs-impact-item">
+        <span class="cs-impact-num">10K+</span>
+        <span class="cs-impact-desc">Concurrent field agents</span>
+      </div>
+      <div class="cs-impact-item">
+        <span class="cs-impact-num">99.9%</span>
+        <span class="cs-impact-desc">Platform uptime SLA</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ CONTENT ══════ -->
+<div class="cs-content">
+  <div class="container">
+    <div class="cs-layout">
+
+      <!-- MAIN -->
+      <div class="cs-main">
+
+        <!-- Problem -->
+        <section class="fade-in-up">
+          <h2>
+            <div class="h2-icon">🔍</div>
+            The Problem
+          </h2>
+          <p>
+            Field force management at enterprise scale is deceptively hard. AlgoLeap's clients —
+            logistics firms, telecom companies, and facility management enterprises — were running
+            field operations on spreadsheets, phone calls, and disconnected mobile apps.
+            The result: zero real-time visibility, delayed job dispatch, and no audit trails.
+          </p>
+          <p>
+            They needed a single platform that could ingest GPS telemetry from thousands of
+            field devices simultaneously, orchestrate task assignment, and surface live dashboards
+            to operations teams — all with enterprise-grade security via Azure AD.
+          </p>
+
+          <div class="challenge-grid" style="margin-top:24px;">
+            <div class="challenge-card">
+              <div class="challenge-icon">📍</div>
+              <h4>No Real-Time Tracking</h4>
+              <p>Operations had zero visibility into field agent locations. Jobs were assigned via phone calls.</p>
+            </div>
+            <div class="challenge-card">
+              <div class="challenge-icon">📊</div>
+              <h4>No Performance Data</h4>
+              <p>No KPIs, no SLA tracking, no audit logs. Management was flying blind on operations.</p>
+            </div>
+            <div class="challenge-card">
+              <div class="challenge-icon">🔐</div>
+              <h4>Security Gaps</h4>
+              <p>Legacy auth with no SSO, no MFA, and no role-based access control for enterprise clients.</p>
+            </div>
+            <div class="challenge-card">
+              <div class="challenge-icon">⚡</div>
+              <h4>Scalability Ceiling</h4>
+              <p>Existing prototype could not handle >500 concurrent connections without degrading.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Architecture -->
+        <section class="fade-in-up delay-1">
+          <h2>
+            <div class="h2-icon">🏗️</div>
+            Architecture Overview
+          </h2>
+          <p>
+            I designed a layered, microservice-inspired architecture where each concern is
+            separated but tightly coordinated via a shared event bus. The platform was built
+            API-first to support both the Angular web console and future mobile clients.
+          </p>
+
+          <div class="arch-diagram" style="margin:28px 0;">
+            <div class="arch-layer">
+              <div class="arch-layer-icon">🌐</div>
+              <div>
+                <div class="arch-layer-label">Angular 14 Frontend</div>
+                <div class="arch-layer-sub">Live Map Console · Admin Dashboard · Agent Portal</div>
+              </div>
+            </div>
+            <div style="text-align:center;padding:8px;color:var(--text-muted);font-size:0.75rem;">↓ HTTPS / WebSocket</div>
+            <div class="arch-layer">
+              <div class="arch-layer-icon">⚙️</div>
+              <div>
+                <div class="arch-layer-label">ASP.NET Core API Gateway</div>
+                <div class="arch-layer-sub">Auth Middleware · Rate Limiting · Request Routing</div>
+              </div>
+            </div>
+            <div style="text-align:center;padding:8px;color:var(--text-muted);font-size:0.75rem;">↓ Internal Services</div>
+            <div class="arch-layer">
+              <div class="arch-layer-icon">📡</div>
+              <div>
+                <div class="arch-layer-label">SignalR Hub (Real-Time Engine)</div>
+                <div class="arch-layer-sub">Location Broadcasts · Job Status · Alerts</div>
+              </div>
+            </div>
+            <div class="arch-layer">
+              <div class="arch-layer-icon">🧠</div>
+              <div>
+                <div class="arch-layer-label">Business Logic Services</div>
+                <div class="arch-layer-sub">Job Dispatch · Scheduling · SLA Engine · Reporting</div>
+              </div>
+            </div>
+            <div class="arch-layer">
+              <div class="arch-layer-icon">🗄️</div>
+              <div>
+                <div class="arch-layer-label">SQL Server + Redis Cache</div>
+                <div class="arch-layer-sub">Telemetry Storage · Session Cache · Hot Data</div>
+              </div>
+            </div>
+            <div class="arch-layer">
+              <div class="arch-layer-icon">☁️</div>
+              <div>
+                <div class="arch-layer-label">Azure AD + IIS Hosting</div>
+                <div class="arch-layer-sub">SSO · RBAC · SSL Termination · Deployment</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Challenges -->
+        <section class="fade-in-up delay-2">
+          <h2>
+            <div class="h2-icon">⚔️</div>
+            Key Challenges Solved
+          </h2>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot">01</div>
+              <div class="timeline-body">
+                <h4>Real-Time at Scale with SignalR</h4>
+                <p>Implemented a SignalR-based hub with group-scoped broadcasting. Instead of broadcasting all events to all clients, agents were segmented into operation groups, reducing payload size by 70% and enabling 10K+ concurrent connections without degradation.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot">02</div>
+              <div class="timeline-body">
+                <h4>Azure AD Integration with Custom Claims</h4>
+                <p>Integrated Azure AD B2C with custom claims mapping for multi-tenant RBAC. Built a middleware pipeline that validates JWT tokens, extracts tenant context, and applies policy-based authorization per route — enabling one codebase to serve multiple enterprise clients securely.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot">03</div>
+              <div class="timeline-body">
+                <h4>API Performance Optimization</h4>
+                <p>Profiled and rewrote hot-path LINQ queries using compiled queries and indexed views. Introduced Redis caching for frequently accessed lookup data (regions, job types, user roles), dropping average API response time from 420ms to 250ms — a 40% improvement.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot">04</div>
+              <div class="timeline-body">
+                <h4>Telemetry Ingestion Pipeline</h4>
+                <p>Designed a high-throughput ingestion API for mobile device GPS pings, batching writes using SQL Server table-valued parameters. This handled spikes of 50K events/minute without degrading transactional queries on the same database.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot">05</div>
+              <div class="timeline-body">
+                <h4>Reporting Engine</h4>
+                <p>Built a parameterized reporting system using stored procedures and SSRS-style export, enabling operations teams to generate SLA compliance, agent performance, and geographic heatmap reports in seconds.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Results -->
+        <section class="fade-in-up delay-3">
+          <h2>
+            <div class="h2-icon">📈</div>
+            Results & Business Impact
+          </h2>
+          <p>
+            The Blueforce platform went from prototype to production in 4 months,
+            onboarding three enterprise clients in the first quarter of launch.
+          </p>
+
+          <div class="results-grid" style="margin-top:24px;">
+            <div class="result-card">
+              <div class="result-num">40%</div>
+              <div class="result-label">API Latency Reduced</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num">10K+</div>
+              <div class="result-label">Concurrent Agents</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num">99.9%</div>
+              <div class="result-label">Uptime Achieved</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num">3</div>
+              <div class="result-label">Enterprise Clients in Q1</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num">70%</div>
+              <div class="result-label">Payload Size Reduction</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num">4mo</div>
+              <div class="result-label">Prototype → Production</div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="cs-sidebar fade-in-up delay-2">
+
+        <div class="cs-sidebar-card">
+          <h4>Tech Stack</h4>
+          <div class="tech-stack-tags">
+            <span class="tag tag-cyan">ASP.NET Core 6</span>
+            <span class="tag tag-cyan">C# 10</span>
+            <span class="tag tag-cyan">Web API</span>
+            <span class="tag tag-cyan">SignalR</span>
+            <span class="tag tag-cyan">Angular 14</span>
+            <span class="tag tag-cyan">TypeScript</span>
+            <span class="tag tag-amber">SQL Server 2019</span>
+            <span class="tag tag-amber">Redis</span>
+            <span class="tag tag-amber">Azure AD</span>
+            <span class="tag tag-amber">Azure B2C</span>
+            <span class="tag tag-green">IIS 10</span>
+            <span class="tag tag-green">SSL/TLS</span>
+            <span class="tag tag-green">Entity Framework Core</span>
+            <span class="tag tag-green">RabbitMQ</span>
+            <span class="tag tag-green">Docker</span>
+          </div>
+        </div>
+
+        <div class="cs-sidebar-card">
+          <h4>My Role</h4>
+          <ul style="display:flex;flex-direction:column;gap:10px;">
+            <li style="font-size:0.85rem;color:var(--text-secondary);padding-left:16px;position:relative;">
+              <span style="position:absolute;left:0;color:var(--cyan);">›</span>
+              System architecture design
+            </li>
+            <li style="font-size:0.85rem;color:var(--text-secondary);padding-left:16px;position:relative;">
+              <span style="position:absolute;left:0;color:var(--cyan);">›</span>
+              Backend API development
+            </li>
+            <li style="font-size:0.85rem;color:var(--text-secondary);padding-left:16px;position:relative;">
+              <span style="position:absolute;left:0;color:var(--cyan);">›</span>
+              SignalR real-time engine
+            </li>
+            <li style="font-size:0.85rem;color:var(--text-secondary);padding-left:16px;position:relative;">
+              <span style="position:absolute;left:0;color:var(--cyan);">›</span>
+              Azure AD integration
+            </li>
+            <li style="font-size:0.85rem;color:var(--text-secondary);padding-left:16px;position:relative;">
+              <span style="position:absolute;left:0;color:var(--cyan);">›</span>
+              Performance optimization
+            </li>
+            <li style="font-size:0.85rem;color:var(--text-secondary);padding-left:16px;position:relative;">
+              <span style="position:absolute;left:0;color:var(--cyan);">›</span>
+              Team leadership (4 devs)
+            </li>
+          </ul>
+        </div>
+
+        <div class="cs-sidebar-card" style="background:var(--cyan-dim);border-color:rgba(0,212,255,0.2);">
+          <h4 style="color:var(--cyan);">Interested in this work?</h4>
+          <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:16px;">
+            I build similar platforms for enterprises. Let's talk about your use case.
+          </p>
+          <a href="mailto:naveenkanagala@email.com" class="btn btn-primary" style="width:100%;justify-content:center;font-size:0.8rem;">
+            Get In Touch
+          </a>
+        </div>
+
+        <div class="cs-sidebar-card">
+          <h4>Other Projects</h4>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <a href="case-study-onesite.html" style="font-size:0.85rem;color:var(--text-secondary);display:flex;justify-content:space-between;align-items:center;transition:var(--transition);" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-secondary)'">
+              <span>OneSite Migration</span><span>→</span>
+            </a>
+            <a href="case-study-gps.html" style="font-size:0.85rem;color:var(--text-secondary);display:flex;justify-content:space-between;align-items:center;transition:var(--transition);" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-secondary)'">
+              <span>GPS Tracking System</span><span>→</span>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<div style="border-top:1px solid var(--border);padding:32px 0;">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+    <a href="projects.html" class="btn btn-secondary">← All Projects</a>
+    <a href="case-study-onesite.html" class="btn btn-secondary">OneSite Migration →</a>
+  </div>
+</div>
+
+<div class="sticky-cta">
+  <a href="mailto:naveenkanagala@email.com" class="btn btn-primary">📩 Hire Me</a>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2025 Naveen Kanagala · <a href="index.html" style="color:var(--cyan);">Back to Home</a></p>
+      <div class="footer-socials">
+        <a href="https://linkedin.com/in/naveen-kanagala" class="social-link" target="_blank">in</a>
+        <a href="https://github.com/naveen-kanagala" class="social-link" target="_blank">GH</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

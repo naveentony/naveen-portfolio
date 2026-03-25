@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OneSite Migration — Case Study | Naveen Kanagala</title>
+  <meta name="description" content="Zero-downtime migration of RealPage's flagship property management platform — AAD auth, SQL driver migration, IIS hardening, and CI/CD overhaul." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2300D4FF'/><text y='23' x='6' font-size='18' font-weight='800' font-family='sans-serif' fill='%23000'>N</text></svg>" />
+</head>
+<body>
+
+<nav class="navbar" role="navigation">
+  <a href="index.html" class="nav-logo"><span class="dot"></span>NK.dev</a>
+  <ul class="nav-links">
+    <li><a href="projects.html" class="active">Work</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="mailto:naveenkanagala@email.com" class="nav-cta">Hire Me →</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section class="cs-hero">
+  <div class="cs-hero-bg" style="background:linear-gradient(135deg,rgba(168,255,62,0.05) 0%,transparent 60%);"></div>
+  <div style="position:absolute;top:-100px;right:-50px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(168,255,62,0.06) 0%,transparent 70%);pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <nav class="cs-breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="projects.html">Projects</a>
+      <span>›</span>
+      <span style="color:var(--green);">OneSite Migration</span>
+    </nav>
+
+    <div class="tag tag-green" style="margin-bottom:20px;display:inline-flex;">🏢 Enterprise Migration</div>
+
+    <h1>
+      OneSite Platform —<br>
+      <span style="background:linear-gradient(135deg,var(--green),#44CC44);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Zero-Downtime Migration</span>
+    </h1>
+
+    <p style="font-size:1.05rem;color:var(--text-secondary);max-width:640px;line-height:1.7;margin-bottom:28px;">
+      Led the full modernization of RealPage's flagship property management SaaS —
+      migrating authentication to Azure AD, replacing legacy SQL drivers, hardening
+      IIS/SSL configuration, and rebuilding the deployment pipeline without a single
+      minute of unplanned downtime.
+    </p>
+
+    <div class="cs-hero-meta">
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Company</span>
+        <span class="cs-meta-val">RealPage, Inc.</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Role</span>
+        <span class="cs-meta-val">Senior .NET Developer / Migration Lead</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Duration</span>
+        <span class="cs-meta-val">2020 – 2022 (18 months)</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Platform Users</span>
+        <span class="cs-meta-val">500K+ Property Managers</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ IMPACT BANNER ══════ -->
+<div class="cs-impact">
+  <div class="container">
+    <div class="cs-impact-grid">
+      <div class="cs-impact-item">
+        <span class="cs-impact-num">0</span>
+        <span class="cs-impact-desc">Minutes of unplanned downtime</span>
+      </div>
+      <div class="cs-impact-item">
+        <span class="cs-impact-num">60%</span>
+        <span class="cs-impact-desc">Faster deployment pipeline</span>
+      </div>
+      <div class="cs-impact-item">
+        <span class="cs-impact-num">500K+</span>
+        <span class="cs-impact-desc">Active users migrated</span>
+      </div>
+      <div class="cs-impact-item">
+        <span class="cs-impact-num">100%</span>
+        <span class="cs-impact-desc">AAD coverage achieved</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ CONTENT ══════ -->
+<div class="cs-content">
+  <div class="container">
+    <div class="cs-layout">
+
+      <div class="cs-main">
+
+        <!-- Problem -->
+        <section class="fade-in-up">
+          <h2>
+            <div class="h2-icon" style="background:rgba(168,255,62,0.1);border-color:rgba(168,255,62,0.2);">🔍</div>
+            The Problem
+          </h2>
+          <p>
+            OneSite is RealPage's flagship property management platform used by over
+            500,000 property managers across the US. It was built on .NET Framework 4.x
+            with legacy <code style="font-family:var(--font-mono);font-size:0.85em;color:var(--cyan);background:var(--cyan-dim);padding:2px 6px;border-radius:4px;">System.Data.SqlClient</code>,
+            Windows authentication via NTLM, and a fragile hand-rolled deployment process.
+          </p>
+          <p>
+            As RealPage moved toward a cloud-first strategy, these technical debts became
+            blockers: AAD authentication failures under IIS, SSL cert binding issues causing
+            intermittent outages, and a deployment pipeline that required hours of manual
+            steps — creating unacceptable risk for a platform of this scale.
+          </p>
+
+          <div style="background:var(--bg-card);border:1px solid rgba(168,255,62,0.15);border-radius:var(--radius-md);padding:24px;margin-top:24px;">
+            <p style="font-family:var(--font-mono);font-size:0.8rem;color:var(--text-muted);margin-bottom:8px;">THE REAL ARTICLE: This case study is the engineering behind my published dev.to article →</p>
+            <a href="blog.html" style="color:var(--green);font-family:var(--font-mono);font-size:0.82rem;display:flex;align-items:center;gap:8px;">
+              "Fixing AAD Authentication & SSL Issues in IIS" <span>↗</span>
+            </a>
+          </div>
+
+          <div class="challenge-grid" style="margin-top:24px;">
+            <div class="challenge-card">
+              <div class="challenge-icon">🔐</div>
+              <h4>AAD Auth Failures</h4>
+              <p>Azure AD token validation was silently failing under IIS due to incorrect app pool identity and missing HTTPS redirect rules.</p>
+            </div>
+            <div class="challenge-card">
+              <div class="challenge-icon">🔒</div>
+              <h4>SSL Binding Issues</h4>
+              <p>Multi-site IIS configs caused SSL cert binding conflicts, causing random HTTPS handshake failures in production.</p>
+            </div>
+            <div class="challenge-card">
+              <div class="challenge-icon">🗄️</div>
+              <h4>Deprecated SQL Driver</h4>
+              <p><code style="font-family:var(--font-mono);font-size:0.82em;">System.Data.SqlClient</code> couldn't support AAD-integrated auth or modern TLS, blocking the cloud migration.</p>
+            </div>
+            <div class="challenge-card">
+              <div class="challenge-icon">🚀</div>
+              <h4>Fragile Deployments</h4>
+              <p>Deploys required 4+ hours of manual steps, coordination across 3 teams, and a rollback plan that had never been tested.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- My Solution -->
+        <section class="fade-in-up delay-1">
+          <h2>
+            <div class="h2-icon" style="background:rgba(168,255,62,0.1);border-color:rgba(168,255,62,0.2);">🛠️</div>
+            The Migration Strategy
+          </h2>
+          <p>
+            The #1 constraint: zero unplanned downtime on a platform with 500K+ users.
+            I designed a phased migration strategy using feature flags, blue-green deployment,
+            and parallel-run verification at every step.
+          </p>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot" style="border-color:var(--green);color:var(--green);">01</div>
+              <div class="timeline-body">
+                <h4>Phase 1 — SQL Driver Migration</h4>
+                <p>
+                  Replaced all <code style="font-family:var(--font-mono);font-size:0.82em;color:var(--cyan);">System.Data.SqlClient</code> references with
+                  <code style="font-family:var(--font-mono);font-size:0.82em;color:var(--green);">Microsoft.Data.SqlClient</code> 4.x across 150+ files.
+                  Built a custom Roslyn analyzer to catch any future regressions.
+                  This unblocked AAD integrated auth and modern TLS 1.2+ support.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="border-color:var(--green);color:var(--green);">02</div>
+              <div class="timeline-body">
+                <h4>Phase 2 — IIS Hardening & SSL Fix</h4>
+                <p>
+                  Audited all IIS site bindings and identified 3 conflicting SSL cert assignments.
+                  Implemented SNI-based SSL binding, enforced TLS 1.2, and disabled legacy cipher suites.
+                  Added HSTS headers and set up automated cert renewal via ACME protocol.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="border-color:var(--green);color:var(--green);">03</div>
+              <div class="timeline-body">
+                <h4>Phase 3 — Azure AD Integration</h4>
+                <p>
+                  Migrated from NTLM to Azure AD using MSAL.NET with OIDC. Built custom middleware
+                  to handle token validation, tenant resolution, and claims transformation.
+                  Ran both auth systems in parallel for 4 weeks during cutover, using a feature flag
+                  to gradually shift traffic.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="border-color:var(--green);color:var(--green);">04</div>
+              <div class="timeline-body">
+                <h4>Phase 4 — CI/CD Pipeline Rebuild</h4>
+                <p>
+                  Replaced manual deployment runbooks with Azure DevOps pipelines using
+                  blue-green deployment slots. Introduced automated smoke tests post-deploy
+                  and rollback triggers based on health check failures.
+                  Deploy time dropped from 4 hours to 25 minutes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Technical Deep Dive -->
+        <section class="fade-in-up delay-2">
+          <h2>
+            <div class="h2-icon" style="background:rgba(168,255,62,0.1);border-color:rgba(168,255,62,0.2);">🔬</div>
+            Technical Deep Dive
+          </h2>
+          <p>
+            The most complex challenge was the AAD integration under IIS — specifically,
+            why tokens validated perfectly in dev but failed in production.
+          </p>
+
+          <div class="arch-diagram" style="margin:24px 0;">
+            <div class="arch-layer">
+              <div class="arch-layer-icon" style="background:rgba(168,255,62,0.1);border-color:rgba(168,255,62,0.2);">🌐</div>
+              <div>
+                <div class="arch-layer-label">Client Browser / Mobile App</div>
+                <div class="arch-layer-sub">Obtains AAD Bearer Token via MSAL</div>
+              </div>
+            </div>
+            <div style="text-align:center;padding:8px;color:var(--text-muted);font-size:0.75rem;">↓ HTTPS (TLS 1.2+)</div>
+            <div class="arch-layer">
+              <div class="arch-layer-icon" style="background:rgba(168,255,62,0.1);border-color:rgba(168,255,62,0.2);">🔒</div>
+              <div>
+                <div class="arch-layer-label">IIS (SNI SSL Binding)</div>
+                <div class="arch-layer-sub">Cert resolved per hostname · HSTS enforced</div>
+              </div>
+            </div>
+            <div style="text-align:center;padding:8px;color:var(--text-muted);font-size:0.75rem;">↓ App Pool (ApplicationPoolIdentity)</div>
+            <div class="arch-layer">
+              <div class="arch-layer-icon" style="background:rgba(168,255,62,0.1);border-color:rgba(168,255,62,0.2);">⚙️</div>
+              <div>
+                <div class="arch-layer-label">ASP.NET Core Middleware Pipeline</div>
+                <div class="arch-layer-sub">JWT Validation → Tenant Resolution → RBAC → Controller</div>
+              </div>
+            </div>
+            <div class="arch-layer">
+              <div class="arch-layer-icon" style="background:rgba(168,255,62,0.1);border-color:rgba(168,255,62,0.2);">🗄️</div>
+              <div>
+                <div class="arch-layer-label">Microsoft.Data.SqlClient</div>
+                <div class="arch-layer-sub">AAD Integrated Auth · Encrypted Connections · Modern TLS</div>
+              </div>
+            </div>
+          </div>
+
+          <p>
+            The root cause of production failures: IIS app pool was running as <code style="font-family:var(--font-mono);font-size:0.82em;color:var(--amber);background:rgba(255,184,48,0.1);padding:2px 6px;border-radius:4px;">NetworkService</code>
+            which couldn't access the certificate private key needed for AAD token signing validation.
+            Switching to <code style="font-family:var(--font-mono);font-size:0.82em;color:var(--green);background:var(--green-dim);padding:2px 6px;border-radius:4px;">ApplicationPoolIdentity</code> with
+            explicit ACL grants resolved it instantly — a 2-week mystery solved in one afternoon.
+          </p>
+
+          <ul class="styled-list" style="margin-top:20px;">
+            <li>Implemented token caching with distributed cache to reduce AAD round-trips by 80%</li>
+            <li>Added correlation IDs across all request logs for end-to-end traceability</li>
+            <li>Built a custom health check endpoint validating DB connectivity, AAD reachability, and cert expiry</li>
+            <li>Enforced claim-based authorization policies replacing legacy role tables in the database</li>
+          </ul>
+        </section>
+
+        <!-- Results -->
+        <section class="fade-in-up delay-3">
+          <h2>
+            <div class="h2-icon" style="background:rgba(168,255,62,0.1);border-color:rgba(168,255,62,0.2);">📈</div>
+            Results & Business Impact
+          </h2>
+
+          <div class="results-grid" style="margin-top:24px;">
+            <div class="result-card">
+              <div class="result-num" style="background:linear-gradient(135deg,var(--green),#44CC44);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">0</div>
+              <div class="result-label">Unplanned Downtime</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num" style="background:linear-gradient(135deg,var(--green),#44CC44);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">60%</div>
+              <div class="result-label">Faster Deploys</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num" style="background:linear-gradient(135deg,var(--green),#44CC44);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">80%</div>
+              <div class="result-label">Fewer Auth Errors</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num" style="background:linear-gradient(135deg,var(--green),#44CC44);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">500K+</div>
+              <div class="result-label">Users Migrated</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num" style="background:linear-gradient(135deg,var(--green),#44CC44);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">25min</div>
+              <div class="result-label">Deploy Time (was 4hr)</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num" style="background:linear-gradient(135deg,var(--green),#44CC44);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">100%</div>
+              <div class="result-label">TLS 1.2+ Coverage</div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="cs-sidebar fade-in-up delay-2">
+
+        <div class="cs-sidebar-card">
+          <h4>Tech Stack</h4>
+          <div class="tech-stack-tags">
+            <span class="tag tag-green">ASP.NET Core 6</span>
+            <span class="tag tag-green">C# 10</span>
+            <span class="tag tag-green">Web API</span>
+            <span class="tag tag-green">MSAL.NET</span>
+            <span class="tag tag-green">Azure AD</span>
+            <span class="tag tag-green">OIDC / JWT</span>
+            <span class="tag tag-cyan">Microsoft.Data.SqlClient</span>
+            <span class="tag tag-cyan">SQL Server 2019</span>
+            <span class="tag tag-cyan">Entity Framework Core</span>
+            <span class="tag tag-amber">IIS 10</span>
+            <span class="tag tag-amber">SNI SSL</span>
+            <span class="tag tag-amber">Azure DevOps</span>
+            <span class="tag tag-amber">Roslyn Analyzers</span>
+          </div>
+        </div>
+
+        <div class="cs-sidebar-card">
+          <h4>Key Decisions</h4>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="padding:12px;background:var(--bg-surface);border-radius:var(--radius-sm);border:1px solid var(--border);">
+              <p style="font-family:var(--font-mono);font-size:0.7rem;color:var(--green);margin-bottom:4px;">DECISION 01</p>
+              <p style="font-size:0.82rem;color:var(--text-secondary);">Phased migration over big-bang rewrite</p>
+            </div>
+            <div style="padding:12px;background:var(--bg-surface);border-radius:var(--radius-sm);border:1px solid var(--border);">
+              <p style="font-family:var(--font-mono);font-size:0.7rem;color:var(--green);margin-bottom:4px;">DECISION 02</p>
+              <p style="font-size:0.82rem;color:var(--text-secondary);">Feature flags for parallel auth cutover</p>
+            </div>
+            <div style="padding:12px;background:var(--bg-surface);border-radius:var(--radius-sm);border:1px solid var(--border);">
+              <p style="font-family:var(--font-mono);font-size:0.7rem;color:var(--green);margin-bottom:4px;">DECISION 03</p>
+              <p style="font-size:0.82rem;color:var(--text-secondary);">Roslyn analyzer for driver enforcement</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-sidebar-card" style="background:rgba(168,255,62,0.06);border-color:rgba(168,255,62,0.2);">
+          <h4 style="color:var(--green);">Read the Article</h4>
+          <p style="font-size:0.84rem;color:var(--text-secondary);margin-bottom:16px;">This migration inspired a published technical deep-dive on Dev.to.</p>
+          <a href="blog.html" class="btn btn-green" style="width:100%;justify-content:center;font-size:0.8rem;">Read on Dev.to →</a>
+        </div>
+
+        <div class="cs-sidebar-card">
+          <h4>Other Projects</h4>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <a href="case-study-blueforce.html" style="font-size:0.85rem;color:var(--text-secondary);display:flex;justify-content:space-between;align-items:center;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-secondary)'">
+              <span>Blueforce Platform</span><span>→</span>
+            </a>
+            <a href="case-study-gps.html" style="font-size:0.85rem;color:var(--text-secondary);display:flex;justify-content:space-between;align-items:center;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-secondary)'">
+              <span>GPS Tracking System</span><span>→</span>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</div>
+
+<div style="border-top:1px solid var(--border);padding:32px 0;">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+    <a href="case-study-blueforce.html" class="btn btn-secondary">← Blueforce</a>
+    <a href="case-study-gps.html" class="btn btn-secondary">GPS Tracker →</a>
+  </div>
+</div>
+
+<div class="sticky-cta">
+  <a href="mailto:naveenkanagala@email.com" class="btn btn-primary">📩 Hire Me</a>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2025 Naveen Kanagala · <a href="index.html" style="color:var(--cyan);">Back to Home</a></p>
+      <div class="footer-socials">
+        <a href="https://linkedin.com/in/naveen-kanagala" class="social-link" target="_blank">in</a>
+        <a href="https://github.com/naveen-kanagala" class="social-link" target="_blank">GH</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

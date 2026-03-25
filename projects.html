@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Naveen Kanagala</title>
+  <meta name="description" content="Case studies and projects by Naveen Kanagala — Senior .NET Full Stack Developer." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2300D4FF'/><text y='23' x='6' font-size='18' font-weight='800' font-family='sans-serif' fill='%23000'>N</text></svg>" />
+</head>
+<body>
+
+<nav class="navbar" role="navigation">
+  <a href="index.html" class="nav-logo">
+    <span class="dot"></span>NK.dev
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#work" class="active">Work</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="mailto:naveenkanagala@email.com" class="nav-cta">Hire Me →</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero" style="background:var(--bg-surface); border-bottom:1px solid var(--border); overflow:hidden; position:relative;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%, rgba(0,212,255,0.07) 0%, transparent 60%);pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="fade-in-up">
+      <p class="section-label">Portfolio</p>
+      <h1>Work That <span class="gradient-text">Speaks for Itself</span></h1>
+      <p>
+        Every project here represents a real engineering challenge — architectural
+        decisions, trade-offs, and measurable outcomes that moved the needle.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- All Projects -->
+<section class="section">
+  <div class="container">
+
+    <!-- Filter labels -->
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px;" class="fade-in-up">
+      <span class="tag tag-cyan" style="padding:8px 16px;">All Projects</span>
+      <span class="tag" style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);">Enterprise SaaS</span>
+      <span class="tag" style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);">IoT Platforms</span>
+      <span class="tag" style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);">Migrations</span>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <a href="case-study-blueforce.html" class="case-card fade-in-up delay-1">
+        <div class="case-card-header">
+          <div class="case-card-icon cyan">⚡</div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+            <span class="tag tag-cyan">SaaS · IoT</span>
+            <span style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-muted);">AlgoLeap · 2022–2024</span>
+          </div>
+        </div>
+        <div class="case-card-body">
+          <h3>Blueforce Platform</h3>
+          <p>
+            Real-time IoT field-force management SaaS. Built high-performance APIs,
+            real-time tracking via SignalR, enterprise reporting, and Azure AD SSO.
+            Reduced API latency by 40% and onboarded multiple enterprise clients.
+          </p>
+          <div class="case-tags">
+            <span class="tag tag-cyan">ASP.NET Core</span>
+            <span class="tag tag-cyan">Angular</span>
+            <span class="tag tag-cyan">SignalR</span>
+            <span class="tag tag-cyan">SQL Server</span>
+            <span class="tag tag-amber">Azure AD</span>
+          </div>
+        </div>
+        <div class="case-card-footer">
+          <div class="case-metric">
+            <span class="case-metric-val">40%</span>
+            <span class="case-metric-label">LATENCY REDUCED</span>
+          </div>
+          <div class="case-metric">
+            <span class="case-metric-val">Enterprise</span>
+            <span class="case-metric-label">SCALE</span>
+          </div>
+          <div class="case-arrow">→</div>
+        </div>
+      </a>
+
+      <!-- Project 2 -->
+      <a href="case-study-onesite.html" class="case-card fade-in-up delay-2">
+        <div class="case-card-header">
+          <div class="case-card-icon green">🏢</div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+            <span class="tag tag-green">Enterprise · Migration</span>
+            <span style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-muted);">RealPage · 2020–2022</span>
+          </div>
+        </div>
+        <div class="case-card-body">
+          <h3>OneSite Platform Migration</h3>
+          <p>
+            Zero-downtime migration of RealPage's flagship property management platform —
+            AAD auth modernization, SQL driver migration, IIS/SSL hardening,
+            and CI/CD pipeline overhaul.
+          </p>
+          <div class="case-tags">
+            <span class="tag tag-green">Web API</span>
+            <span class="tag tag-green">IIS / SSL</span>
+            <span class="tag tag-green">Azure AD</span>
+            <span class="tag tag-cyan">C# / .NET 6</span>
+          </div>
+        </div>
+        <div class="case-card-footer">
+          <div class="case-metric">
+            <span class="case-metric-val">0</span>
+            <span class="case-metric-label">DOWNTIME</span>
+          </div>
+          <div class="case-metric">
+            <span class="case-metric-val">60%</span>
+            <span class="case-metric-label">FASTER DEPLOYS</span>
+          </div>
+          <div class="case-arrow">→</div>
+        </div>
+      </a>
+
+      <!-- Project 3 -->
+      <a href="case-study-gps.html" class="case-card fade-in-up delay-3">
+        <div class="case-card-header">
+          <div class="case-card-icon amber">📡</div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+            <span class="tag tag-amber">IoT · Tracking</span>
+            <span style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-muted);">Tech Mahindra · 2018–2020</span>
+          </div>
+        </div>
+        <div class="case-card-body">
+          <h3>GPS Fleet Tracking System</h3>
+          <p>
+            End-to-end GPS fleet telemetry platform processing 1M+ events/day,
+            with live maps, geofence alerting, route playback, and
+            executive dashboards for fleet operators.
+          </p>
+          <div class="case-tags">
+            <span class="tag tag-amber">Web API</span>
+            <span class="tag tag-amber">SignalR</span>
+            <span class="tag tag-cyan">SQL Server</span>
+            <span class="tag tag-amber">Angular</span>
+            <span class="tag tag-amber">Google Maps API</span>
+          </div>
+        </div>
+        <div class="case-card-footer">
+          <div class="case-metric">
+            <span class="case-metric-val">1M+</span>
+            <span class="case-metric-label">EVENTS/DAY</span>
+          </div>
+          <div class="case-metric">
+            <span class="case-metric-val">&lt;2s</span>
+            <span class="case-metric-label">LIVE LATENCY</span>
+          </div>
+          <div class="case-arrow">→</div>
+        </div>
+      </a>
+
+      <!-- Project 4 — Blog Article -->
+      <a href="blog.html" class="case-card fade-in-up delay-4" style="border-color:rgba(168,255,62,0.1);">
+        <div class="case-card-header">
+          <div class="case-card-icon green">✍️</div>
+          <span class="tag tag-green">Technical Article</span>
+        </div>
+        <div class="case-card-body">
+          <h3>Fixing AAD Auth & SSL in IIS</h3>
+          <p>
+            Published on Dev.to — A deep-dive into solving Azure AD authentication
+            failures, SSL binding issues in IIS, and why migrating away from
+            System.Data.SqlClient was the right call.
+          </p>
+          <div class="case-tags">
+            <span class="tag tag-green">AAD Auth</span>
+            <span class="tag tag-green">IIS</span>
+            <span class="tag tag-green">SSL</span>
+            <span class="tag tag-cyan">Microsoft.Data.SqlClient</span>
+          </div>
+        </div>
+        <div class="case-card-footer">
+          <div class="case-metric">
+            <span class="case-metric-val" style="color:var(--green);">Dev.to</span>
+            <span class="case-metric-label">PUBLISHED ON</span>
+          </div>
+          <div class="case-arrow" style="border-color:rgba(168,255,62,0.25);background:rgba(168,255,62,0.08);">→</div>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="hire-section">
+  <div class="container">
+    <div class="hire-inner fade-in-up">
+      <p class="section-label" style="justify-content:center;">Next Step</p>
+      <h2>Liked What You Saw?<br><span class="gradient-text">Let's Build Together.</span></h2>
+      <p>10+ years of shipping production software for enterprises. Available for senior roles, consulting, and long-term contracts.</p>
+      <div class="hire-actions">
+        <a href="mailto:naveenkanagala@email.com" class="btn btn-primary">📩 Email Me</a>
+        <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-btn" target="_blank">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2025 Naveen Kanagala · <a href="index.html" style="color:var(--cyan);">Back to Home</a></p>
+      <div class="footer-socials">
+        <a href="https://linkedin.com/in/naveen-kanagala" class="social-link" target="_blank">in</a>
+        <a href="https://github.com/naveen-kanagala" class="social-link" target="_blank">GH</a>
+        <a href="https://dev.to/naveen_kanagala" class="social-link" target="_blank">DT</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="mailto:naveenkanagala@email.com" class="btn btn-primary">📩 Hire Me</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

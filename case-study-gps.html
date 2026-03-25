@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPS Fleet Tracking System — Case Study | Naveen Kanagala</title>
+  <meta name="description" content="Built an enterprise GPS fleet tracking system processing 1M+ telemetry events per day with live dashboards, geofencing, and real-time alerting." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2300D4FF'/><text y='23' x='6' font-size='18' font-weight='800' font-family='sans-serif' fill='%23000'>N</text></svg>" />
+</head>
+<body>
+
+<nav class="navbar" role="navigation">
+  <a href="index.html" class="nav-logo"><span class="dot"></span>NK.dev</a>
+  <ul class="nav-links">
+    <li><a href="projects.html" class="active">Work</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="mailto:naveenkanagala@email.com" class="nav-cta">Hire Me →</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section class="cs-hero">
+  <div class="cs-hero-bg" style="background:linear-gradient(135deg,rgba(255,184,48,0.05) 0%,transparent 60%);"></div>
+  <div style="position:absolute;top:-80px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(255,184,48,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <nav class="cs-breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="projects.html">Projects</a>
+      <span>›</span>
+      <span style="color:var(--amber);">GPS Tracking</span>
+    </nav>
+
+    <div class="tag tag-amber" style="margin-bottom:20px;display:inline-flex;">📡 IoT · Fleet Tracking</div>
+
+    <h1>
+      GPS Fleet Tracker —<br>
+      <span style="background:linear-gradient(135deg,var(--amber),#FF8800);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">1M+ Events Per Day,</span><br>
+      <span class="gradient-text">Live.</span>
+    </h1>
+
+    <p style="font-size:1.05rem;color:var(--text-secondary);max-width:640px;line-height:1.7;margin-bottom:28px;">
+      Built from zero to production — a full enterprise GPS fleet management platform 
+      at Tech Mahindra that ingests millions of device telemetry events daily,
+      with sub-2-second live tracking, geofence alerting, route analysis, and
+      executive dashboards for fleet operations.
+    </p>
+
+    <div class="cs-hero-meta">
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Company</span>
+        <span class="cs-meta-val">Tech Mahindra</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Role</span>
+        <span class="cs-meta-val">.NET Developer / Full Stack Lead</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Duration</span>
+        <span class="cs-meta-val">2018 – 2020 (2 years)</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Fleet Scale</span>
+        <span class="cs-meta-val">15,000+ Active Vehicles</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ IMPACT BANNER ══════ -->
+<div class="cs-impact">
+  <div class="container">
+    <div class="cs-impact-grid">
+      <div class="cs-impact-item">
+        <span class="cs-impact-num">1M+</span>
+        <span class="cs-impact-desc">GPS events processed per day</span>
+      </div>
+      <div class="cs-impact-item">
+        <span class="cs-impact-num">&lt;2s</span>
+        <span class="cs-impact-desc">Live map update latency</span>
+      </div>
+      <div class="cs-impact-item">
+        <span class="cs-impact-num">15K+</span>
+        <span class="cs-impact-desc">Active vehicles tracked</span>
+      </div>
+      <div class="cs-impact-item">
+        <span class="cs-impact-num">35%</span>
+        <span class="cs-impact-desc">Fuel cost reduction reported</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ CONTENT ══════ -->
+<div class="cs-content">
+  <div class="container">
+    <div class="cs-layout">
+
+      <div class="cs-main">
+
+        <!-- Problem -->
+        <section class="fade-in-up">
+          <h2>
+            <div class="h2-icon" style="background:rgba(255,184,48,0.1);border-color:rgba(255,184,48,0.2);">🔍</div>
+            The Problem
+          </h2>
+          <p>
+            Tech Mahindra's enterprise clients — logistics companies, government fleet operators,
+            and delivery networks — were managing 10,000+ vehicles with no centralized visibility.
+            Route deviations weren't caught until hours later. Fuel theft was undetected.
+            Drivers had no accountability without real-time oversight.
+          </p>
+          <p>
+            The challenge wasn't just building a GPS app — it was building a platform that could
+            reliably ingest high-frequency telemetry from thousands of hardware devices simultaneously,
+            process geofence violations in real-time, and present actionable intelligence to dispatchers
+            and executives through a single web interface.
+          </p>
+
+          <div class="challenge-grid" style="margin-top:24px;">
+            <div class="challenge-card">
+              <div class="challenge-icon">📍</div>
+              <h4>High-Frequency Telemetry</h4>
+              <p>GPS devices ping every 10–30 seconds. At 15K vehicles, that's 30–90K pings/minute requiring reliable ingestion.</p>
+            </div>
+            <div class="challenge-card">
+              <div class="challenge-icon">⚡</div>
+              <h4>Sub-Second Live Maps</h4>
+              <p>Fleet operators demanded live map updates under 2 seconds — polling was out. A persistent push architecture was essential.</p>
+            </div>
+            <div class="challenge-card">
+              <div class="challenge-icon">🗺️</div>
+              <h4>Geofence Processing</h4>
+              <p>Each ping needed real-time validation against hundreds of geofence polygons per vehicle — computationally expensive at scale.</p>
+            </div>
+            <div class="challenge-card">
+              <div class="challenge-icon">📊</div>
+              <h4>Historical Analytics</h4>
+              <p>Reporting on billions of historical rows for route replay, mileage, idle time, and SLA analysis without degrading live performance.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Architecture -->
+        <section class="fade-in-up delay-1">
+          <h2>
+            <div class="h2-icon" style="background:rgba(255,184,48,0.1);border-color:rgba(255,184,48,0.2);">🏗️</div>
+            System Architecture
+          </h2>
+          <p>
+            I designed a dual-pipeline architecture: a high-throughput write path optimized for
+            bulk telemetry ingestion, and a read path optimized for real-time queries and dashboard
+            serving — completely decoupled to prevent analytics from impacting live tracking.
+          </p>
+
+          <div class="arch-diagram" style="margin:28px 0;">
+            <div class="arch-layer">
+              <div class="arch-layer-icon" style="background:rgba(255,184,48,0.1);border-color:rgba(255,184,48,0.2);">📡</div>
+              <div>
+                <div class="arch-layer-label">GPS Hardware Devices (15K+)</div>
+                <div class="arch-layer-sub">GPRS/4G · Ping every 10–30 seconds · NMEA + Custom protocol</div>
+              </div>
+            </div>
+            <div style="text-align:center;padding:8px;color:var(--text-muted);font-size:0.75rem;">↓ TCP / HTTP POST</div>
+            <div class="arch-layer">
+              <div class="arch-layer-icon" style="background:rgba(255,184,48,0.1);border-color:rgba(255,184,48,0.2);">⚡</div>
+              <div>
+                <div class="arch-layer-label">Telemetry Ingestion API</div>
+                <div class="arch-layer-sub">High-throughput endpoint · Bulk TVP inserts · Zero blocking</div>
+              </div>
+            </div>
+            <div style="text-align:center;padding:8px;color:var(--text-muted);font-size:0.75rem;">↓ Async Queue</div>
+            <div class="arch-layer">
+              <div class="arch-layer-icon" style="background:rgba(255,184,48,0.1);border-color:rgba(255,184,48,0.2);">🧠</div>
+              <div>
+                <div class="arch-layer-label">Event Processing Engine</div>
+                <div class="arch-layer-sub">Geofence Validation · Alert Triggers · Route Analysis</div>
+              </div>
+            </div>
+            <div class="arch-layer">
+              <div class="arch-layer-icon" style="background:rgba(255,184,48,0.1);border-color:rgba(255,184,48,0.2);">🔔</div>
+              <div>
+                <div class="arch-layer-label">SignalR Broadcast Hub</div>
+                <div class="arch-layer-sub">Live map updates · Alert push · Dispatcher feeds</div>
+              </div>
+            </div>
+            <div class="arch-layer">
+              <div class="arch-layer-icon" style="background:rgba(255,184,48,0.1);border-color:rgba(255,184,48,0.2);">🗄️</div>
+              <div>
+                <div class="arch-layer-label">SQL Server (Partitioned)</div>
+                <div class="arch-layer-sub">Live table (hot) · Historical partitions (warm/cold) · Indexed views</div>
+              </div>
+            </div>
+            <div class="arch-layer">
+              <div class="arch-layer-icon" style="background:rgba(255,184,48,0.1);border-color:rgba(255,184,48,0.2);">🌐</div>
+              <div>
+                <div class="arch-layer-label">Angular + Google Maps Frontend</div>
+                <div class="arch-layer-sub">Live Fleet Map · Route Replay · Reports · Alerts Console</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Challenges -->
+        <section class="fade-in-up delay-2">
+          <h2>
+            <div class="h2-icon" style="background:rgba(255,184,48,0.1);border-color:rgba(255,184,48,0.2);">⚔️</div>
+            Engineering Challenges Solved
+          </h2>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot" style="border-color:var(--amber);color:var(--amber);">01</div>
+              <div class="timeline-body">
+                <h4>Bulk Telemetry Ingestion Without Bottlenecks</h4>
+                <p>
+                  Standard row-by-row inserts couldn't handle the throughput. I implemented
+                  SQL Server Table-Valued Parameters (TVPs) with batched async inserts,
+                  grouping incoming pings into 500ms windows before committing to the DB.
+                  This reduced DB write round-trips by 95% and eliminated the ingestion bottleneck.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="border-color:var(--amber);color:var(--amber);">02</div>
+              <div class="timeline-body">
+                <h4>Real-Time Geofence Validation at Scale</h4>
+                <p>
+                  Validating each GPS point against hundreds of polygon geofences per vehicle
+                  was computationally expensive. I implemented a spatial indexing strategy
+                  using SQL Server's <code style="font-family:var(--font-mono);font-size:0.82em;color:var(--amber);">geography</code> type with
+                  bounding-box pre-filter + precise polygon check only for candidates,
+                  reducing compute per event by 85%.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="border-color:var(--amber);color:var(--amber);">03</div>
+              <div class="timeline-body">
+                <h4>Sub-2-Second Live Map Updates</h4>
+                <p>
+                  Built a SignalR hub with vehicle-group scoping — dispatchers only receive
+                  updates for their assigned fleet segments. Combined with Redis pub/sub
+                  for cross-server broadcasting in multi-node IIS deployment, live updates
+                  consistently achieved &lt;1.2s end-to-end latency in production.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="border-color:var(--amber);color:var(--amber);">04</div>
+              <div class="timeline-body">
+                <h4>Table Partitioning for Historical Queries</h4>
+                <p>
+                  With billions of historical telemetry rows, reporting queries were timing out.
+                  Implemented SQL Server partition switching on the telemetry table (monthly partitions),
+                  with a separate indexed summary table for dashboard queries.
+                  Report generation dropped from 45+ seconds to under 3 seconds.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="border-color:var(--amber);color:var(--amber);">05</div>
+              <div class="timeline-body">
+                <h4>Device Protocol Parsing</h4>
+                <p>
+                  GPS hardware used 3 different proprietary protocols alongside standard NMEA.
+                  Built a pluggable protocol parser pipeline using the Strategy pattern,
+                  where each parser is registered at startup and selected based on device
+                  identifier — making new device types a 1-day integration.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Features Built -->
+        <section class="fade-in-up delay-3">
+          <h2>
+            <div class="h2-icon" style="background:rgba(255,184,48,0.1);border-color:rgba(255,184,48,0.2);">✨</div>
+            Platform Features Delivered
+          </h2>
+          <ul class="styled-list">
+            <li><strong style="color:var(--text-primary);">Live Fleet Map</strong> — Real-time vehicle positions on Google Maps with speed, status, and driver info overlays</li>
+            <li><strong style="color:var(--text-primary);">Geofence Manager</strong> — Draw/import polygon zones with entry/exit alerting and dwell time tracking</li>
+            <li><strong style="color:var(--text-primary);">Route Replay</strong> — Play back historical vehicle paths with speed profiles and stop analysis</li>
+            <li><strong style="color:var(--text-primary);">Alert Engine</strong> — Configurable alerts for overspeeding, geofence breach, ignition events, and idle time</li>
+            <li><strong style="color:var(--text-primary);">Driver Scorecards</strong> — Automated scoring based on harsh braking, acceleration, and compliance metrics</li>
+            <li><strong style="color:var(--text-primary);">Executive Dashboard</strong> — Fleet KPIs, utilization rates, maintenance due alerts, and cost analytics</li>
+            <li><strong style="color:var(--text-primary);">Trip Reports</strong> — Detailed mileage, fuel, idle time, and SLA compliance reports on demand</li>
+            <li><strong style="color:var(--text-primary);">Multi-Tenant Support</strong> — Separate fleet pools per client with isolated data and custom branding</li>
+          </ul>
+        </section>
+
+        <!-- Results -->
+        <section class="fade-in-up delay-4">
+          <h2>
+            <div class="h2-icon" style="background:rgba(255,184,48,0.1);border-color:rgba(255,184,48,0.2);">📈</div>
+            Results & Business Impact
+          </h2>
+
+          <div class="results-grid" style="margin-top:24px;">
+            <div class="result-card">
+              <div class="result-num" style="background:linear-gradient(135deg,var(--amber),#FF8800);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">1M+</div>
+              <div class="result-label">Events Per Day</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num" style="background:linear-gradient(135deg,var(--amber),#FF8800);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">&lt;2s</div>
+              <div class="result-label">Live Map Latency</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num" style="background:linear-gradient(135deg,var(--amber),#FF8800);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">35%</div>
+              <div class="result-label">Fuel Cost Reduction</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num" style="background:linear-gradient(135deg,var(--amber),#FF8800);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">85%</div>
+              <div class="result-label">Faster Geofence Check</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num" style="background:linear-gradient(135deg,var(--amber),#FF8800);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">95%</div>
+              <div class="result-label">DB Write Reduction</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num" style="background:linear-gradient(135deg,var(--amber),#FF8800);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">3s</div>
+              <div class="result-label">Report Gen (was 45s)</div>
+            </div>
+          </div>
+
+          <div style="margin-top:32px;padding:24px;background:rgba(255,184,48,0.06);border:1px solid rgba(255,184,48,0.15);border-radius:var(--radius-md);">
+            <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">
+              <span style="color:var(--amber);font-weight:600;">Business outcome:</span> Fleet operators reported a 35% reduction in fuel costs,
+              over 60% reduction in unauthorized vehicle use, and achieved SLA compliance
+              visibility for the first time — translating to direct contract renewals and
+              expansion to 3 additional enterprise clients.
+            </p>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="cs-sidebar fade-in-up delay-2">
+
+        <div class="cs-sidebar-card">
+          <h4>Tech Stack</h4>
+          <div class="tech-stack-tags">
+            <span class="tag tag-amber">ASP.NET Core 3.1</span>
+            <span class="tag tag-amber">C# 8</span>
+            <span class="tag tag-amber">Web API</span>
+            <span class="tag tag-amber">SignalR</span>
+            <span class="tag tag-amber">Angular 11</span>
+            <span class="tag tag-amber">Google Maps API</span>
+            <span class="tag tag-cyan">SQL Server 2017</span>
+            <span class="tag tag-cyan">Geography Type</span>
+            <span class="tag tag-cyan">Table Partitioning</span>
+            <span class="tag tag-cyan">TVP Bulk Inserts</span>
+            <span class="tag tag-green">Redis Pub/Sub</span>
+            <span class="tag tag-green">IIS 10</span>
+            <span class="tag tag-green">Entity Framework</span>
+            <span class="tag tag-green">NMEA Parser</span>
+          </div>
+        </div>
+
+        <div class="cs-sidebar-card">
+          <h4>Scale Numbers</h4>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(--border);">
+              <span style="font-size:0.82rem;color:var(--text-secondary);">Active Vehicles</span>
+              <span style="font-family:var(--font-mono);font-size:0.82rem;color:var(--amber);">15,000+</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(--border);">
+              <span style="font-size:0.82rem;color:var(--text-secondary);">Events / Day</span>
+              <span style="font-family:var(--font-mono);font-size:0.82rem;color:var(--amber);">1M+</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(--border);">
+              <span style="font-size:0.82rem;color:var(--text-secondary);">Peak Events / Min</span>
+              <span style="font-family:var(--font-mono);font-size:0.82rem;color:var(--amber);">90K</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(--border);">
+              <span style="font-size:0.82rem;color:var(--text-secondary);">Live Connections</span>
+              <span style="font-family:var(--font-mono);font-size:0.82rem;color:var(--amber);">5K+</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;">
+              <span style="font-size:0.82rem;color:var(--text-secondary);">Geofences Tracked</span>
+              <span style="font-family:var(--font-mono);font-size:0.82rem;color:var(--amber);">2,000+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-sidebar-card" style="background:rgba(255,184,48,0.06);border-color:rgba(255,184,48,0.2);">
+          <h4 style="color:var(--amber);">Need IoT at Scale?</h4>
+          <p style="font-size:0.84rem;color:var(--text-secondary);margin-bottom:16px;">I've built telemetry systems handling millions of events. Let's discuss your requirements.</p>
+          <a href="mailto:naveenkanagala@email.com" class="btn btn-green" style="width:100%;justify-content:center;font-size:0.8rem;">Talk to Me →</a>
+        </div>
+
+        <div class="cs-sidebar-card">
+          <h4>Other Projects</h4>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <a href="case-study-blueforce.html" style="font-size:0.85rem;color:var(--text-secondary);display:flex;justify-content:space-between;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-secondary)'">
+              <span>Blueforce Platform</span><span>→</span>
+            </a>
+            <a href="case-study-onesite.html" style="font-size:0.85rem;color:var(--text-secondary);display:flex;justify-content:space-between;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-secondary)'">
+              <span>OneSite Migration</span><span>→</span>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</div>
+
+<div style="border-top:1px solid var(--border);padding:32px 0;">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+    <a href="case-study-onesite.html" class="btn btn-secondary">← OneSite Migration</a>
+    <a href="projects.html" class="btn btn-secondary">All Projects →</a>
+  </div>
+</div>
+
+<div class="sticky-cta">
+  <a href="mailto:naveenkanagala@email.com" class="btn btn-primary">📩 Hire Me</a>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2025 Naveen Kanagala · <a href="index.html" style="color:var(--cyan);">Back to Home</a></p>
+      <div class="footer-socials">
+        <a href="https://linkedin.com/in/naveen-kanagala" class="social-link" target="_blank">in</a>
+        <a href="https://github.com/naveen-kanagala" class="social-link" target="_blank">GH</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

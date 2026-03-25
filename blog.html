@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Naveen Kanagala | .NET Engineering Insights</title>
+  <meta name="description" content="Technical writing by Naveen Kanagala — deep dives on .NET, ASP.NET Core, Azure AD, SQL Server performance, and enterprise software engineering." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2300D4FF'/><text y='23' x='6' font-size='18' font-weight='800' font-family='sans-serif' fill='%23000'>N</text></svg>" />
+</head>
+<body>
+
+<nav class="navbar" role="navigation">
+  <a href="index.html" class="nav-logo"><span class="dot"></span>NK.dev</a>
+  <ul class="nav-links">
+    <li><a href="projects.html">Work</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="mailto:naveenkanagala@email.com" class="nav-cta">Hire Me →</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section class="blog-hero" style="background:var(--bg-surface); border-bottom:1px solid var(--border); overflow:hidden; position:relative;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(168,255,62,0.06) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="fade-in-up">
+      <p class="section-label">Writing</p>
+      <h1>Engineering Insights<br><span class="gradient-text">from the Trenches</span></h1>
+      <p style="font-size:1.05rem;color:var(--text-secondary);max-width:520px;line-height:1.7;margin-top:16px;">
+        Hard-won lessons from 10+ years of enterprise software — on
+        .NET architecture, Azure, SQL performance, and team leadership.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FEATURED ARTICLE ══════ -->
+<section class="blog-featured">
+  <div class="container" style="padding-top:60px;">
+
+    <div class="fade-in-up" style="margin-bottom:32px;">
+      <p class="section-label">Featured Article</p>
+    </div>
+
+    <a href="https://dev.to/naveen_kanagala/fixing-aad-authentication-and-ssl-issues-in-iis-why-we-migrated-from-systemdatasqlclient-to-21l0"
+       target="_blank" rel="noopener" class="blog-featured-card fade-in-up delay-1" style="display:grid;">
+
+      <div class="blog-featured-visual">
+        <!-- Decorative floating orbs -->
+        <div style="position:absolute;top:20px;right:20px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(168,255,62,0.12) 0%,transparent 70%);"></div>
+        <div style="position:absolute;bottom:20px;left:20px;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,255,0.1) 0%,transparent 70%);"></div>
+
+        <div class="blog-code-preview">
+<span class="cm">// The root cause was here...</span><br>
+<span class="kw">services</span>.<span class="str">AddAuthentication</span>()<br>
+&nbsp;&nbsp;.<span class="str">AddMicrosoftIdentityWebApi</span>(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">options</span> =><br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm">// AAD config</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">options</span>.<span class="str">Authority</span> =<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"https://login.microsoftonline.com/..."</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;});<br><br>
+<span class="cm">// Migrated from deprecated:</span><br>
+<span class="cm">// ❌ System.Data.SqlClient</span><br>
+<span class="kw">using</span> <span class="str">Microsoft.Data.SqlClient</span>; <span class="cm">// ✅</span>
+        </div>
+      </div>
+
+      <div class="blog-featured-content">
+        <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;">
+          <span class="tag tag-green">Authentication</span>
+          <span class="tag tag-cyan">IIS</span>
+          <span class="tag tag-cyan">SSL</span>
+          <span class="tag tag-amber">SQL Client</span>
+        </div>
+
+        <h2>
+          Fixing AAD Authentication & SSL Issues in IIS — Why We Migrated from System.Data.SqlClient
+        </h2>
+
+        <p>
+          A technical deep-dive into diagnosing production AAD auth failures in an IIS-hosted
+          ASP.NET Core application — covering silent token validation failures, SSL binding
+          conflicts with multi-site configs, and the IIS app pool identity issue that took
+          two weeks to find. Plus the real reason we had to leave System.Data.SqlClient behind.
+        </p>
+
+        <div class="blog-highlights">
+          <div class="blog-highlight-item">Why System.Data.SqlClient breaks with AAD integrated auth</div>
+          <div class="blog-highlight-item">SSL SNI binding gotchas in multi-site IIS configs</div>
+          <div class="blog-highlight-item">The app pool identity issue that caused silent auth failures</div>
+          <div class="blog-highlight-item">Step-by-step migration to Microsoft.Data.SqlClient</div>
+          <div class="blog-highlight-item">Debugging IIS HTTPS issues with Failed Request Tracing</div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+          <div>
+            <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);">PUBLISHED ON DEV.TO · 2024 · 12 MIN READ</span>
+          </div>
+          <span class="btn btn-green" style="font-size:0.82rem;padding:10px 20px;">
+            Read Article ↗
+          </span>
+        </div>
+      </div>
+
+    </a>
+  </div>
+</section>
+
+<!-- ══════ MORE ARTICLES ══════ -->
+<section class="blog-articles-section">
+  <div class="container">
+
+    <div class="fade-in-up" style="margin-bottom:32px;">
+      <p class="section-label">More Writing</p>
+      <h2 class="blog-section-title">Coming Soon — Topics I'm Writing About</h2>
+    </div>
+
+    <div class="blog-articles-grid">
+
+      <!-- Article 2 (upcoming) -->
+      <div class="blog-card fade-in-up delay-1" style="border-style:dashed;opacity:0.7;">
+        <div class="blog-meta">
+          <span class="tag tag-cyan">Performance</span>
+          <span class="blog-date">In Progress</span>
+        </div>
+        <h3>SQL Server Query Optimization: From 45s to 3s with Partitioning</h3>
+        <p>
+          How I used table partitioning, indexed views, and query plan analysis to
+          reduce report generation time by 93% on a billion-row telemetry table.
+        </p>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--cyan);animation:pulse 2s ease-in-out infinite;display:inline-block;"></span>
+          <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);">DRAFTING</span>
+        </div>
+      </div>
+
+      <!-- Article 3 (upcoming) -->
+      <div class="blog-card fade-in-up delay-2" style="border-style:dashed;opacity:0.7;">
+        <div class="blog-meta">
+          <span class="tag tag-amber">Architecture</span>
+          <span class="blog-date">Planned</span>
+        </div>
+        <h3>Designing Multi-Tenant SaaS with .NET and Azure AD B2C</h3>
+        <p>
+          A practical guide to tenant isolation, custom claims, and per-tenant
+          configuration in ASP.NET Core — with real patterns from production systems.
+        </p>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--amber);display:inline-block;"></span>
+          <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);">PLANNED</span>
+        </div>
+      </div>
+
+      <!-- Article 4 (upcoming) -->
+      <div class="blog-card fade-in-up delay-3" style="border-style:dashed;opacity:0.7;">
+        <div class="blog-meta">
+          <span class="tag tag-green">Real-Time</span>
+          <span class="blog-date">Planned</span>
+        </div>
+        <h3>SignalR at Scale: Group Broadcasting, Redis Backplane & Load Balancing</h3>
+        <p>
+          Lessons from running SignalR with 10K+ concurrent connections across
+          multiple IIS nodes — including the Redis backplane config that saved us.
+        </p>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;"></span>
+          <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);">PLANNED</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════ NEWSLETTER / FOLLOW CTA ══════ -->
+<section style="padding:60px 0;border-top:1px solid var(--border);background:var(--bg-surface);">
+  <div class="container">
+    <div style="max-width:560px;margin:0 auto;text-align:center;" class="fade-in-up">
+      <p class="section-label" style="justify-content:center;">Stay Updated</p>
+      <h2 style="font-size:1.8rem;margin-bottom:16px;">
+        Follow My Writing on Dev.to
+      </h2>
+      <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:32px;">
+        I publish deep technical articles on .NET, Azure, SQL performance, and enterprise
+        architecture — written for engineers who want the real story, not the surface level.
+      </p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://dev.to/naveen_kanagala" target="_blank" rel="noopener" class="btn btn-primary">
+          Follow on Dev.to ↗
+        </a>
+        <a href="https://linkedin.com/in/naveen-kanagala" target="_blank" rel="noopener" class="btn btn-secondary">
+          Connect on LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ BACK TO PORTFOLIO ══════ -->
+<section class="hire-section">
+  <div class="container">
+    <div class="hire-inner fade-in-up">
+      <p class="section-label" style="justify-content:center;">What's Next</p>
+      <h2>Ready to Work<br><span class="gradient-text">with a Senior Engineer?</span></h2>
+      <p>I don't just write about these problems — I've solved them in production,
+        at scale, for enterprise clients. Let's talk about what you're building.</p>
+      <div class="hire-actions">
+        <a href="mailto:naveenkanagala@email.com" class="btn btn-primary">📩 Email Me</a>
+        <a href="projects.html" class="btn btn-secondary">View Case Studies</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3 class="gradient-text">NK.dev</h3>
+        <p>Senior .NET Full Stack Developer — 10+ years of enterprise software engineering, team leadership, and cloud-native architecture.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Articles</h4>
+        <ul>
+          <li><a href="https://dev.to/naveen_kanagala" target="_blank">AAD & SSL in IIS</a></li>
+          <li><a href="blog.html">SQL Partitioning (soon)</a></li>
+          <li><a href="blog.html">SignalR at Scale (soon)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:naveenkanagala@email.com">Email</a></li>
+          <li><a href="https://linkedin.com/in/naveen-kanagala" target="_blank">LinkedIn</a></li>
+          <li><a href="https://dev.to/naveen_kanagala" target="_blank">Dev.to</a></li>
+          <li><a href="https://github.com/naveen-kanagala" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Naveen Kanagala · Engineering with purpose</p>
+      <div class="footer-socials">
+        <a href="https://linkedin.com/in/naveen-kanagala" class="social-link" target="_blank">in</a>
+        <a href="https://github.com/naveen-kanagala" class="social-link" target="_blank">GH</a>
+        <a href="https://dev.to/naveen_kanagala" class="social-link" target="_blank">DT</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="mailto:naveenkanagala@email.com" class="btn btn-primary">📩 Hire Me</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
